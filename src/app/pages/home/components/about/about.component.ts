@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  @Input() aboutData: Object; // 从首页组件传入的数据
 
-  ngOnInit() {
+  constructor () { }
+
+  ngOnInit () {
   }
 
 }
