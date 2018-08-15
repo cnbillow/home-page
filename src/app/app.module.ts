@@ -19,7 +19,6 @@ import { AboutComponent } from '@pages/home/components/about/about.component';
 /** ====================== 配置 Angular i18n ====================== */
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
-
 registerLocaleData(zh);
 
 @NgModule({

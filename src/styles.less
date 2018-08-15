@@ -1,13 +1,61 @@
 /* ====================== 引入 ng-zorro 全局样式 ====================== */
 @import 'node_modules/ng-zorro-antd/src/ng-zorro-antd.min.css';
+@import './theme/theme.less';
 
 * {
   margin: 0;
   padding: 0;
 }
 
+/* ====================== 章节样式 ===================== */
 .section {
   padding: 60px calc(25%);
+}
+
+.section-inverse {
+  background: #ECEFF7;
+}
+
+.section-row {
+  padding-bottom: 50px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 48px;
+  line-height: 1.1;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* ====================== 自定义图标按钮样式 ===================== */
+.btn-raised {
+  display: inline-block;
+  background: @primary-color;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+  height: 37px;
+  line-height: 37px;
+  padding: 0 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-clip: padding-box;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  -ms-transition: 0.3s;
+  transition: 0.3s;
+  cursor: pointer;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+.btn-raised:hover {
+  background: @primary-5;
+  color: #fafafa;
 }
 
 .btn-fab {
