@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpResponse, HttpErrorResponse, HttpClient } from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 
 import { Response } from '@models/response';
 
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,13 +24,13 @@ export class ProcessHttpMsgService {
 
     if (typeof error === 'string') {
       errMsg = error;
-    } else if (error.error instanceof Error) {
-      errMsg = error.error.message;
+    } else if (error instanceof Error) {
+      errMsg = error.message;
     } else {
       errMsg = `${error.status} - ${error.statusText || ''} ${error.error}`;
     }
 
-    return Observable.throw(errMsg);
+    return throwError(errMsg);
   }
 
   /**
