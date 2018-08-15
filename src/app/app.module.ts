@@ -6,14 +6,20 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
 
+import { AppRoutingModule } from './app-routing/app-routing.module';
+
 /** ====================== 导入组件 ====================== */
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './common/header/header.component';
-import { FooterComponent } from './common/footer/footer.component';
+import { HeaderComponent } from '@common/header/header.component';
+import { FooterComponent } from '@common/footer/footer.component';
+
+import { HomeComponent } from '@pages/home/home.component';
+import { AboutComponent } from '@pages/home/components/about/about.component';
 
 /** ====================== 配置 Angular i18n ====================== */
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
+
 registerLocaleData(zh);
 
 @NgModule({
@@ -21,13 +27,16 @@ registerLocaleData(zh);
     AppComponent,
     HeaderComponent,
     FooterComponent,
+    AboutComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    NgZorroAntdModule
+    NgZorroAntdModule,
+    AppRoutingModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: zh_CN }

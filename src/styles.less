@@ -1,8 +1,13 @@
 /* ====================== 引入 ng-zorro 全局样式 ====================== */
 @import 'node_modules/ng-zorro-antd/src/ng-zorro-antd.min.css';
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .section {
-  padding: calc(10%) calc(25%);
+  padding: 60px calc(25%);
 }
 
 .btn-fab {
@@ -43,13 +48,33 @@
 }
 
 /* ====================== 超小屏幕 ====================== */
+@media (max-width: 479px) {
+  .section {
+    padding-left: calc(5%);
+    padding-right: calc(5%);
+  }
+}
 
-/* ====================== 小屏幕 ====================== */
-
-/* ====================== 中等屏幕 ====================== */
+/* ====================== 小中屏幕 ====================== */
+@media (min-width: 480px) and (max-width: 991px) {
+  .section {
+    padding-left: calc(8%);
+    padding-right: calc(8%);
+  }
+}
 
 /* ====================== 大屏幕 ====================== */
+@media (min-width: 992px) and (max-width: 1499px) {
+  .section {
+    padding-left: calc(10%);
+    padding-right: calc(10%);
+  }
+}
 
 /* ====================== 超大屏幕 ====================== */
-
-/* ====================== 特大屏幕 ====================== */
+@media (min-width: 1500px) {
+  .section {
+    padding-left: ~"calc(50% - 525px)";
+    padding-right: ~"calc(50% - 525px)";
+  }
+}
