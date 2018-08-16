@@ -1,0 +1,18 @@
+<div>
+  <div class="section section-inverse">
+    <!-- 工作经历标题模块 -->
+    <div nz-row class="section-row">
+      <div nz-col nzSpan="24">
+        <h2 class="section-title">Experience</h2>
+      </div>
+    </div>
+    <!-- 工作经历列表模块 -->
+    <div nz-row *ngIf="experiences" class="section-row">
+      <div nz-col [nzMd]="8" [nzSpan]="24" *ngFor="let experience of experiences">
+        <app-experience-card [experience]="experience"></app-experience-card>
+      </div>
+    </div>
+    <!-- 工作经历详情模块 -->
+    <app-experience-detail></app-experience-detail>
+  </div>
+</div>

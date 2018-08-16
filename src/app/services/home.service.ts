@@ -1,7 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { environment } from '../../environments/environment';
+
+import { Experience } from '@shared/experience';
 
 import { ProcessHttpMsgService } from '@services/process-http-msg.service';
 
@@ -15,8 +17,13 @@ export class HomeService {
 
   baseUrl: string = `${environment.baseUrl}/api/home`; // 后端接口地址
 
+  showExpDetailEvent: EventEmitter<Experience>; // 打开工作经历详情弹窗的事件
+
   constructor (private http: HttpClient,
-    private processHttpMsgService: ProcessHttpMsgService) { }
+    private processHttpMsgService: ProcessHttpMsgService) {
+
+    this.showExpDetailEvent = new EventEmitter();
+  }
 
   /**
    * 简介：获取首页的数据，如：工作经历、教育背景等

@@ -1,0 +1,23 @@
+<nz-modal
+  *ngIf="experience"
+  [nzContent]="modalContent"
+  [(nzVisible)]="isVisible"
+  [nzTitle]="modalTitle"
+  [nzFooter]="modalFooter"
+  (nzOnCancel)="closeModal()"
+>
+  <ng-template #modalTitle>
+    {{ experience.title }}
+  </ng-template>
+  <ng-template #modalContent>
+    <nz-carousel nzAutoPlay>
+      <div nz-carousel-content *ngFor="let image of experience.images">
+        <img [src]="image" />
+      </div>
+    </nz-carousel>
+    <p>{{ experience.description }}</p>
+  </ng-template>
+  <ng-template #modalFooter>
+    <button nz-button nzType="primary" (click)="closeModal()">OK</button>
+  </ng-template>
+</nz-modal>

@@ -14,7 +14,10 @@ import { HeaderComponent } from '@common/header/header.component';
 import { FooterComponent } from '@common/footer/footer.component';
 
 import { HomeComponent } from '@pages/home/home.component';
-import { AboutComponent } from '@pages/home/components/about/about.component';
+import { AboutComponent } from '@pages/home/about/about.component';
+import { ExperienceComponent } from '@pages/home/experience/experience.component';
+import { ExperienceCardComponent } from '@pages/home/experience/experience-card/experience-card.component';
+import { ExperienceDetailComponent } from '@pages/home/experience/experience-detail/experience-detail.component';
 
 /** ====================== 配置 Angular i18n ====================== */
 import { registerLocaleData } from '@angular/common';
@@ -24,10 +27,15 @@ registerLocaleData(zh);
 @NgModule({
   declarations: [
     AppComponent,
+
     HeaderComponent,
     FooterComponent,
-    AboutComponent,
+    
     HomeComponent,
+    AboutComponent,
+    ExperienceComponent,
+    ExperienceCardComponent,
+    ExperienceDetailComponent,
   ],
   imports: [
     BrowserModule,

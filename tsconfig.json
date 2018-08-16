@@ -17,7 +17,7 @@
       "@common/*": ["./src/app/common/*"],
       "@pages/*": ["./src/app/pages/*"],
       "@services/*": ["./src/app/services/*"],
-      "@models/*": ["./src/app/models/*"],
+      "@shared/*": ["./src/app/shared/*"],
       "@util/*": ["./src/app/util/*"]
     },
     "lib": [

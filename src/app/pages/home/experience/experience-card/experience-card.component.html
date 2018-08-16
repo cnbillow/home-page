@@ -1,0 +1,9 @@
+<nz-card (click)="showExperienceDetail()" [nzTitle]="experience.title">
+  <div class="card-image">
+    <img alt="{{ experience.title }}" src="{{ experience.images[0] }}"/>
+  </div>
+  <div class="card-content">
+    <h3>{{ experience.company }}</h3>
+    <p>{{ experience.startDate | date }} - {{ experience.endDate | date }}</p>
+  </div>
+</nz-card>
