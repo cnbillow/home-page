@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Experience } from '@shared/experience';
+import { Experience } from '@shared/models/experience';
 
 import { HomeService } from '@services/home.service';
 

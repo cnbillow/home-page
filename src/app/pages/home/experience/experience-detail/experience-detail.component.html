@@ -7,14 +7,9 @@
   (nzOnCancel)="closeModal()"
 >
   <ng-template #modalTitle>
-    {{ experience.title }}
+    <strong>{{ experience.title }}</strong>
   </ng-template>
   <ng-template #modalContent>
-    <nz-carousel nzAutoPlay>
-      <div nz-carousel-content *ngFor="let image of experience.images">
-        <img [src]="image" />
-      </div>
-    </nz-carousel>
     <p>{{ experience.description }}</p>
   </ng-template>
   <ng-template #modalFooter>

@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import { Experience } from '@shared/experience';
+import { Experience } from '@shared/models/experience';
 import { HomeService } from '@services/home.service';
 
 import { Subscription } from 'rxjs';

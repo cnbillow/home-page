@@ -1,0 +1,12 @@
+<nz-card [nzTitle]="titleTemplate">
+  <div class="card-image">
+    <img [alt]="education.titlt" [src]="education.image"/>
+  </div>
+  <div class="card-content">
+    <h3>{{ education.school }}</h3>
+    <p>{{ education.startDate | date }} - {{ education.endDate | date }}</p>
+  </div>
+</nz-card>
+<ng-template #titleTemplate>
+  <strong>{{ education.degree }} - {{ education.major }}</strong>
+</ng-template>

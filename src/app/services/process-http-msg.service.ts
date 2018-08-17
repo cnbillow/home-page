@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 
-import { Response } from '@shared/response';
+import { Response } from '@shared/models/response';
 
 import { Observable, throwError } from 'rxjs';
 

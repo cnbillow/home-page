@@ -1,9 +1,12 @@
-<nz-card (click)="showExperienceDetail()" [nzTitle]="experience.title">
+<nz-card (click)="showExperienceDetail()" [nzTitle]="titleTemplate">
   <div class="card-image">
-    <img alt="{{ experience.title }}" src="{{ experience.images[0] }}"/>
+    <img [alt]="experience.title" [src]="experience.image"/>
   </div>
   <div class="card-content">
     <h3>{{ experience.company }}</h3>
     <p>{{ experience.startDate | date }} - {{ experience.endDate | date }}</p>
   </div>
 </nz-card>
+<ng-template #titleTemplate>
+  <strong>{{ experience.title }}</strong>
+</ng-template>

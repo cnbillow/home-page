@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { environment } from '../../environments/environment';
 
-import { Experience } from '@shared/experience';
+import { Experience } from '@shared/models/experience';
 
 import { ProcessHttpMsgService } from '@services/process-http-msg.service';
 
