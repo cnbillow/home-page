@@ -1,0 +1,23 @@
+<div>
+  <div class="section section-inverse">
+    <!-- 最新博客标题模块 -->
+    <div nz-row class="section-row">
+      <div nz-col nzSpan="24">
+        <h2 class="section-title">Latest Blogs</h2>
+      </div>
+    </div>
+    <!-- 最新博客列表模块 -->
+    <div nz-row *ngIf="blogs" class="section-row">
+      <div nz-col [nzMd]="8" [nzSpan]="24" *ngFor="let blog of blogs">
+        <app-blog-card [blog]="blog"></app-blog-card>
+      </div>
+    </div>
+    <!-- 进入博客列表模块 -->
+    <div nz-row class="section-row">
+      <a class="btn-raised" routerLink="/blog">
+        <span>READ MORE</span>
+        <i class="anticon anticon-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</div>

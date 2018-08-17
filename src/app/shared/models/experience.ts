@@ -2,10 +2,10 @@
  * 工作经历
  */
 export class Experience {
-  title: String;       // 工作经历职称
-  company: String;     // 所在公司
-  image: String;       // 图片
+  title: string;       // 工作经历职称
+  company: string;     // 所在公司
+  image: string;       // 图片
   startDate: Date;     // 开始时间
   endDate: Date;       // 结束时间
-  description: String; // 职位描述
+  description: string; // 职位描述
 }

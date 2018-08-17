@@ -10,8 +10,10 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 
 /** ====================== 导入组件 ====================== */
 import { AppComponent } from './app.component';
+
 import { HeaderComponent } from '@common/header/header.component';
 import { FooterComponent } from '@common/footer/footer.component';
+import { BlogCardComponent } from '@common/blog-card/blog-card.component';
 
 import { HomeComponent } from '@pages/home/home.component';
 import { AboutComponent } from '@pages/home/about/about.component';
@@ -20,6 +22,7 @@ import { ExperienceCardComponent } from '@pages/home/experience/experience-card/
 import { ExperienceDetailComponent } from '@pages/home/experience/experience-detail/experience-detail.component';
 import { EducationComponent } from '@pages/home/education/education.component';
 import { EducationCardComponent } from '@pages/home/education/education-card/education-card.component';
+import { LatestBlogComponent } from '@pages/home/latest-blog/latest-blog.component';
 
 /** ====================== 配置 Angular i18n ====================== */
 import { registerLocaleData } from '@angular/common';
@@ -33,15 +36,16 @@ registerLocaleData(zh);
 
     HeaderComponent,
     FooterComponent,
+    BlogCardComponent,
     
     HomeComponent,
     AboutComponent,
     ExperienceComponent,
     ExperienceCardComponent,
     ExperienceDetailComponent,
-
     EducationComponent,
     EducationCardComponent,
+    LatestBlogComponent,
   ],
   imports: [
     BrowserModule,
