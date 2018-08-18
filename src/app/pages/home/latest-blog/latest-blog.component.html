@@ -9,7 +9,7 @@
     <!-- 最新博客列表模块 -->
     <div nz-row *ngIf="blogs" class="section-row">
       <div nz-col [nzMd]="8" [nzSpan]="24" *ngFor="let blog of blogs">
-        <app-blog-card [blog]="blog"></app-blog-card>
+        <app-blog-card [routerLink]="'/blog/' + blog._id" [blog]="blog"></app-blog-card>
       </div>
     </div>
     <!-- 进入博客列表模块 -->

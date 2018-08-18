@@ -12,23 +12,25 @@ import { Subscription } from 'rxjs';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  homeData: Object = new Object();
-  infoSubscription: Subscription;
+  homeData: Object = new Object(); // 首页数据
+  infoSubscription: Subscription;  // 订阅器
 
   constructor (private homeService: HomeService,
     private messageService: NzMessageService) { }
 
   ngOnInit () {
-    this.infoSubscription = this.homeService.getHomeData().subscribe( // 获取首页信息
-      (homeData: Object) => {
-        this.homeData = homeData;
-      }, 
-      (error: string) => {
-        this.messageService.error(error);
-      });
+    this.infoSubscription = this.homeService.getHomeData() // 获取首页信息
+      .subscribe( 
+        (homeData: Object) => {
+          this.homeData = homeData;
+        }, 
+        (error: string) => {
+          this.messageService.error(error);
+        }
+      );
   }
 
   ngOnDestroy () {
-    if (this.infoSubscription) this.infoSubscription.unsubscribe();
+    if (this.infoSubscription) this.infoSubscription.unsubscribe(); // 取消订阅
   }
 }

@@ -15,7 +15,7 @@ export class ExperienceDetailComponent implements OnInit, OnDestroy {
   isVisible: boolean; // 弹窗是否显示
   experience: Experience; // 工作经历
 
-  modalSubscription: Subscription;
+  modalSubscription: Subscription; // 弹窗订阅器
 
   constructor (private homeService: HomeService) { }
 
@@ -27,7 +27,7 @@ export class ExperienceDetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy () {
-    if (this.modalSubscription) this.modalSubscription.unsubscribe();
+    if (this.modalSubscription) this.modalSubscription.unsubscribe(); // 取消订阅
   }
 
   /**

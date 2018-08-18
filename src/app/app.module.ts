@@ -24,10 +24,11 @@ import { EducationComponent } from '@pages/home/education/education.component';
 import { EducationCardComponent } from '@pages/home/education/education-card/education-card.component';
 import { LatestBlogComponent } from '@pages/home/latest-blog/latest-blog.component';
 
+import { BlogListComponent } from '@pages/blog-list/blog-list.component';
+
 /** ====================== 配置 Angular i18n ====================== */
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
-
 registerLocaleData(zh);
 
 @NgModule({
@@ -46,6 +47,8 @@ registerLocaleData(zh);
     EducationComponent,
     EducationCardComponent,
     LatestBlogComponent,
+    
+    BlogListComponent ,
   ],
   imports: [
     BrowserModule,
