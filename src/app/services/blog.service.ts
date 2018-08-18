@@ -32,4 +32,19 @@ export class BlogService {
         catchError(this.processHttpMsgService.handleError)
       );
   }
+
+  /**
+   * 简介：根据博客 ID 获取博客详情
+   * 
+   * @param blogId: 博客 ID
+   * @return Observable<Blog>
+   */
+  getBlogById (blogId: string): Observable<Blog> {
+    return this.http.get(`${this.baseUrl}/${blogId}`)
+      .pipe(
+        map(this.processHttpMsgService.handleMapResponse),
+        map((data: Object) => { return <Blog>data['blog'] }),
+        catchError(this.processHttpMsgService.handleError)
+      );
+  }
 }

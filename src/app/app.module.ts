@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
 
+import { HighlightModule } from 'ngx-highlightjs';
+
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
 /** ====================== 导入组件 ====================== */
@@ -25,6 +27,10 @@ import { EducationCardComponent } from '@pages/home/education/education-card/edu
 import { LatestBlogComponent } from '@pages/home/latest-blog/latest-blog.component';
 
 import { BlogListComponent } from '@pages/blog-list/blog-list.component';
+
+import { BlogDetailComponent } from '@pages/blog-detail/blog-detail.component';
+import { BlogContentComponent } from './pages/blog-detail/blog-content/blog-content.component';
+import { BlogCommentComponent } from './pages/blog-detail/blog-comment/blog-comment.component';
 
 /** ====================== 配置 Angular i18n ====================== */
 import { registerLocaleData } from '@angular/common';
@@ -48,7 +54,11 @@ registerLocaleData(zh);
     EducationCardComponent,
     LatestBlogComponent,
     
-    BlogListComponent ,
+    BlogListComponent,
+
+    BlogDetailComponent,
+    BlogContentComponent,
+    BlogCommentComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +66,7 @@ registerLocaleData(zh);
     FormsModule,
     HttpClientModule,
     NgZorroAntdModule,
+    HighlightModule.forRoot({ theme: 'vs2015' }),
     AppRoutingModule
   ],
   providers: [

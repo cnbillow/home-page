@@ -1,0 +1,37 @@
+<div>
+  <div class="section" *ngIf="blog">
+    <!-- 博客标题模块 -->
+    <div nz-row class="section-row">
+      <div nz-col nzSpan="24">
+        <h2 class="section-title blog-title">{{ blog.title }}</h2>
+      </div>
+    </div>
+    <!-- 博客内容模块 -->
+    <div nz-row class="section-row">
+      <div nz-col nzSpan="24">
+        <article class="single-post-page">
+          <div class="thumb-wrap">
+            <img [src]="blog.largeImage" [alt]="blog.title">
+          </div>
+          <!-- markdown 解析的内容 -->
+          <div [innerHtml]="convertedText" highlight="pre code" class="single-post-content">
+            {{ blog.content }}
+          </div>
+          <!-- <div class="clearfix post-footer">
+            <a class="post-action numb">
+              <i class="anticon anticon-eye"> <span class="numb">{{ blog.views }}</span>
+            </a>
+            <a class="post-action numb">
+              <i class="anticon anticon-message"></i> <span class="numb">{{ blog.comments.length }}</span>
+            </a>
+            <ul class="clearfix right share-post">
+              <li>
+                <a class="oauth-link"><i class="fa fa-google-plus"></i> Plus</a>
+              </li>
+            </ul>
+          </div> -->
+        </article>
+      </div>
+    </div>
+  </div>
+</div>

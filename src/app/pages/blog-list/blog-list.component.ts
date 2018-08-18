@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './blog-list.component.html',
   styleUrls: ['./blog-list.component.less']
 })
-export class BlogListComponent implements OnInit {
+export class BlogListComponent implements OnInit, OnDestroy {
 
   blogs: Blog[];                  // 博客列表数组
   blogSubscription: Subscription; // 博客订阅器
