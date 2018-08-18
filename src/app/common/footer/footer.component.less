@@ -1,17 +1,15 @@
 .footer {
-  height: 75px;
-  line-height: 75px;
   background: #2A333C;
   color: #E8E8E8;
 }
 
-.social ul li {
-  display: inline-block;
-  margin-right: 8px;
-}
-
-.social ul li:first-child {
-  margin-left: 10px;
+ul.social {
+  /* ng-zorro 设置了 ul 的 margin-bottom: 1em */
+  margin-bottom: 0;
+  li {
+    display: inline-block;
+    margin-right: 8px;
+  }
 }
 
 .btn-weixin:hover {
@@ -47,27 +45,27 @@
 /* ====================== 超小屏幕 ====================== */
 @media (max-width: 479px) {
   .footer {
-    padding: 0 calc(5%);
+    padding: 20px calc(5%);
   }
 }
 
 /* ====================== 小中屏幕 ====================== */
 @media (min-width: 480px) and (max-width: 991px) {
   .footer {
-    padding: 0 calc(8%);
+    padding: 20px calc(8%);
   }
 }
 
 /* ====================== 大屏幕 ====================== */
 @media (min-width: 992px) and (max-width: 1499px) {
   .footer {
-    padding: 0 calc(10%);
+    padding: 20px calc(10%);
   }
 }
 
 /* ====================== 超大屏幕 ====================== */
 @media (min-width: 1500px) {
   .footer {
-    padding: 0 ~"calc(50% - 525px)";
+    padding: 20px ~"calc(50% - 525px)";
   }
 }

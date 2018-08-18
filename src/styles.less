@@ -28,6 +28,19 @@
   text-transform: uppercase;
 }
 
+.clearfix:before,
+.clearfix:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
+
 /* ====================== 自定义走马灯样式 ===================== */
 
 [nz-carousel-content] {

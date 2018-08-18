@@ -29,8 +29,10 @@ import { LatestBlogComponent } from '@pages/home/latest-blog/latest-blog.compone
 import { BlogListComponent } from '@pages/blog-list/blog-list.component';
 
 import { BlogDetailComponent } from '@pages/blog-detail/blog-detail.component';
-import { BlogContentComponent } from './pages/blog-detail/blog-content/blog-content.component';
-import { BlogCommentComponent } from './pages/blog-detail/blog-comment/blog-comment.component';
+import { BlogContentComponent } from '@pages/blog-detail/blog-content/blog-content.component';
+import { BlogCommentComponent } from '@pages/blog-detail/blog-comment/blog-comment.component';
+
+import { PageNotFoundComponent } from '@pages/page-not-found/page-not-found.component';
 
 /** ====================== 配置 Angular i18n ====================== */
 import { registerLocaleData } from '@angular/common';
@@ -59,6 +61,8 @@ registerLocaleData(zh);
     BlogDetailComponent,
     BlogContentComponent,
     BlogCommentComponent,
+
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

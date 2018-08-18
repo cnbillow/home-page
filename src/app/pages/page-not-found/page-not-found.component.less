@@ -1,0 +1,46 @@
+.not-found {
+  color: #575757;
+  text-align: center;
+}
+
+img {
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+p {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* ====================== 超小屏幕 ====================== */
+@media (max-width: 479px) {
+  p {
+    padding-left: calc(5%);
+    padding-right: calc(5%);
+  }
+}
+
+/* ====================== 小中屏幕 ====================== */
+@media (min-width: 480px) and (max-width: 991px) {
+  p {
+    padding-left: calc(8%);
+    padding-right: calc(8%);
+  }
+}
+
+/* ====================== 大屏幕 ====================== */
+@media (min-width: 992px) and (max-width: 1499px) {
+  p {
+    padding-left: calc(10%);
+    padding-right: calc(10%);
+  }
+}
+
+/* ====================== 超大屏幕 ====================== */
+@media (min-width: 1500px) {
+  p {
+    padding-left: ~"calc(50% - 525px)";
+    padding-right: ~"calc(50% - 525px)";
+  }
+}
