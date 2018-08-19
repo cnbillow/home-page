@@ -1,6 +1,6 @@
 <nz-card nzHoverable [nzExtra]="extraTemplate">
   <div class="card-image">
-    <img [alt]="blog.title" [src]="blog.smallImage"/>
+    <img [alt]="blog.title" [src]="baseUrl + '/' + blog.smallImage"/>
   </div>
   <div class="card-content">
     <h3>{{ blog.title }}</h3>

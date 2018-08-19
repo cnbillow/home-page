@@ -11,7 +11,7 @@
       <div nz-col nzSpan="24">
         <article class="single-post-page">
           <div class="thumb-wrap">
-            <img [src]="blog.largeImage" [alt]="blog.title">
+            <img [src]="baseUrl + '/' + blog.largeImage" [alt]="blog.title">
           </div>
           <!-- markdown 解析的内容 -->
           <div [innerHtml]="convertedText" highlight="pre code" class="single-post-content">

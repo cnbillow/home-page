@@ -1,7 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { environment } from '../../environments/environment';
+import { environment } from '@environments/environment';
 
 import { Experience } from '@shared/models/experience';
 
@@ -15,7 +15,7 @@ import { map, catchError } from 'rxjs/operators';
 })
 export class HomeService {
 
-  baseUrl: string = `${environment.baseUrl}/home`; // 后端接口地址
+  apiUrl: string = `${environment.apiUrl}/home`; // 后端接口地址
 
   showExpDetailEvent: EventEmitter<Experience>; // 打开工作经历详情弹窗的事件
 
@@ -31,7 +31,7 @@ export class HomeService {
    * @return Observable<Object>
    */
   getHomeData (): Observable<Object> {
-    return this.http.get(this.baseUrl)
+    return this.http.get(this.apiUrl)
       .pipe(
         map(this.processHttpMsgService.handleMapResponse),
         catchError(this.processHttpMsgService.handleError)

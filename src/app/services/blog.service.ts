@@ -1,7 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { environment } from '../../environments/environment';
+import { environment } from '@environments/environment';
 
 import { Blog } from '@shared/models/blog';
 import { ProcessHttpMsgService } from '@services/process-http-msg.service';
@@ -14,7 +14,7 @@ import { map, catchError } from 'rxjs/operators';
 })
 export class BlogService {
 
-  baseUrl: string = `${environment.baseUrl}/blogs`; // 后端接口地址
+  apiUrl: string = `${environment.apiUrl}/blogs`; // 后端接口地址
 
   constructor (private http: HttpClient,
     private processHttpMsgService: ProcessHttpMsgService) { }
@@ -25,7 +25,7 @@ export class BlogService {
    * @return Observable<Blog[]>
    */
   getBlogs (): Observable<Blog[]> {
-    return this.http.get(this.baseUrl)
+    return this.http.get(this.apiUrl)
       .pipe(
         map(this.processHttpMsgService.handleMapResponse),
         map((data: Object) => { return <Blog[]>data['blogs'] }),
@@ -40,7 +40,7 @@ export class BlogService {
    * @return Observable<Blog>
    */
   getBlogById (blogId: string): Observable<Blog> {
-    return this.http.get(`${this.baseUrl}/${blogId}`)
+    return this.http.get(`${this.apiUrl}/${blogId}`)
       .pipe(
         map(this.processHttpMsgService.handleMapResponse),
         map((data: Object) => { return <Blog>data['blog'] }),
