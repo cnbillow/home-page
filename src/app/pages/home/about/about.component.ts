@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { About } from '@shared/models/about';
+
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -7,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  @Input() aboutData: Object; // 从首页组件传入的数据
+  @Input() about: About; // 从首页组件传入的数据
 
   constructor () { }
 

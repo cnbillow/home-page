@@ -3,8 +3,8 @@
     <!-- 个人简介模块 -->
     <div nz-col nzXs="24" nzSm="24" nzMd="8" class="about-story gutter-row">
       <h3 class="about-subtitle">MY STORY</h3>
-      <p *ngIf="aboutData">{{ aboutData.story }}</p>
-      <a class="btn-raised" *ngIf="aboutData" [href]="aboutData.resumeLink" target="_blank">
+      <p *ngIf="about">{{ about.story }}</p>
+      <a class="btn-raised" *ngIf="about" [href]="about.resumeLink" target="_blank">
         <i class="anticon anticon-cloud-download"></i>
         <span>DOWNLOAD MY RESUME</span>
       </a>
@@ -21,8 +21,8 @@
         <h3 class="about-subtitle">PERSONAL INFORMATION</h3>
         <h5><span>Name :</span> Haisheng Lin</h5>
         <h5><span>Age :</span> 25</h5>
-        <h5><span>Email :</span> hlin86@asu.edu</h5>
-        <h5><span>Address :</span> Guangzhou, China</h5>
+        <h5 *ngIf="about"><span>Email :</span> {{ about.email }}</h5>
+        <h5 *ngIf="about"><span>Address :</span> {{ about.address }}</h5>
       </div>
     </div>
   </div>

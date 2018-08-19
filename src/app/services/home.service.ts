@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { environment } from '@environments/environment';
 
+import { HomeData } from '@shared/models/home-data';
 import { Experience } from '@shared/models/experience';
 
 import { ProcessHttpMsgService } from '@services/process-http-msg.service';
@@ -28,12 +29,13 @@ export class HomeService {
   /**
    * 简介：获取首页的数据，如：工作经历、教育背景等
    * 
-   * @return Observable<Object>
+   * @return Observable<HomeData>
    */
-  getHomeData (): Observable<Object> {
+  getHomeData (): Observable<HomeData> {
     return this.http.get(this.apiUrl)
       .pipe(
         map(this.processHttpMsgService.handleMapResponse),
+        map((data: Object) => { return <HomeData>data }),
         catchError(this.processHttpMsgService.handleError)
       );
   }
