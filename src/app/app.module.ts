@@ -4,11 +4,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
+import { RouteReuseStrategy } from '@angular/router';
 
+import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
 import { HighlightModule } from 'ngx-highlightjs';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
+
+/** ====================== 导入路由复用策略 ====================== */
+import { ReuseStrategy } from './app-routing/reuse-strategy';
 
 /** ====================== 导入组件 ====================== */
 import { AppComponent } from './app.component';
@@ -74,7 +78,8 @@ registerLocaleData(zh);
     AppRoutingModule
   ],
   providers: [
-    { provide: NZ_I18N, useValue: zh_CN }
+    { provide: NZ_I18N, useValue: zh_CN },
+    { provide: RouteReuseStrategy, useClass: ReuseStrategy }
   ],
   bootstrap: [AppComponent]
 })

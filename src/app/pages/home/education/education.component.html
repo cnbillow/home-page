@@ -1,13 +1,13 @@
 <div>
   <div class="section">
     <!-- 教育背景标题模块 -->
-    <div nz-row class="section-row">
+    <div nz-row class="section-row" [nzGutter]="5">
       <div nz-col nzSpan="24">
         <h2 class="section-title">Education</h2>
       </div>
     </div>
     <!-- 教育背景列表模块 -->
-    <div nz-row *ngIf="educations" class="section-row">
+    <div nz-row *ngIf="educations" class="section-row" [nzGutter]="5">
       <div nz-col [nzMd]="8" [nzSpan]="24" *ngFor="let education of educations">
         <app-education-card [education]="education"></app-education-card>
       </div>

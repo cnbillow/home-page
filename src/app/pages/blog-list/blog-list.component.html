@@ -1,7 +1,7 @@
 <div>
   <div class="section section-inverse">
     <!-- 最新博客列表模块 -->
-    <div nz-row *ngIf="blogs" class="section-row">
+    <div nz-row *ngIf="blogs" class="section-row" [nzGutter]="5">
       <div nz-col [nzMd]="8" [nzSpan]="24" *ngFor="let blog of blogs">
         <app-blog-card [routerLink]="'/blog/' + blog._id" [blog]="blog"></app-blog-card>
       </div>
