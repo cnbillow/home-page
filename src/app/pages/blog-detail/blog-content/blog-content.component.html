@@ -14,7 +14,7 @@
             <img [src]="baseUrl + '/' + blog.largeImage" [alt]="blog.title">
           </div>
           <!-- markdown 解析的内容 -->
-          <div [innerHtml]="convertedText" highlight="pre code" class="single-post-content">
+          <div [innerHtml]="convertedText" highlight="pre code" class="markdown-content">
             {{ blog.content }}
           </div>
           <!-- <div class="clearfix post-footer">

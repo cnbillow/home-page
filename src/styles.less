@@ -123,6 +123,102 @@
   color: #fff!important;
 }
 
+/* ====================== markdown 解析后的样式 ===================== */
+.markdown-content {
+  margin-bottom: 43px;
+  color: #777777;
+  p {
+    font-size: 14px;
+    color: #777777;
+    font-weight: 400;
+    line-height: 1.95;
+    margin-bottom: 20px;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #444444;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+  a {
+    color: @primary-color;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #444;
+  }
+  img {
+    width: 100%;
+  }
+  h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  pre {
+    display: block;
+    padding: 20px;
+    font-size: 13px;
+    font-family: monospace, monospace;
+    line-height: 18px;
+    background: #1e1e1e;
+    color: #d5d5d5;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+  :not(pre) code {
+    padding: 0.2em 0.4em;
+    font-size: 85%;
+    background: @primary-color;
+    color: #d5d5d5;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+  }
+  blockquote {
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    padding-left: 20px;
+    line-height: 30px;
+    margin-bottom: 33px;
+    vertical-align: baseline;
+    page-break-inside: avoid;
+    margin: 20px 0;
+    border-left: 5px solid @primary-color;
+  }
+  ul {
+    margin-left: 20px;
+    margin-bottom: 28px;
+    li {
+      color: #777777;
+      font-size: 14px;
+      line-height: 26px;
+      list-style-type: none;
+      position: relative;
+      padding-left: 17px;
+      p {
+        margin-bottom: 10px;
+      }
+    }
+    li:before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background-color: #777777;
+      position: absolute;
+      border-radius: 50%;
+      left: 0;
+      top: 10px;
+    }
+  }
+}
+
 /* ====================== 超小屏幕 ====================== */
 @media (max-width: 479px) {
   .section {
