@@ -1,8 +1,9 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { environment } from '@environments/environment';
 
+import { Response } from '@shared/models/response';
 import { Blog } from '@shared/models/blog';
 import { ProcessHttpMsgService } from '@services/process-http-msg.service';
 
@@ -25,7 +26,7 @@ export class BlogService {
    * @return Observable<Blog[]>
    */
   getBlogs (): Observable<Blog[]> {
-    return this.http.get(this.apiUrl)
+    return this.http.get<Response>(this.apiUrl)
       .pipe(
         map(this.processHttpMsgService.handleMapResponse),
         map((data: Object) => { return <Blog[]>data['blogs'] }),
@@ -40,7 +41,7 @@ export class BlogService {
    * @return Observable<Blog>
    */
   getBlogById (blogId: string): Observable<Blog> {
-    return this.http.get(`${this.apiUrl}/${blogId}`)
+    return this.http.get<Response>(`${this.apiUrl}/${blogId}`)
       .pipe(
         map(this.processHttpMsgService.handleMapResponse),
         map((data: Object) => { return <Blog>data['blog'] }),

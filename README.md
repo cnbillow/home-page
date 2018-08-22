@@ -24,25 +24,16 @@
 >>> app-routing: 路由文件
 >>>
 >>> pages: 页面以及内部组件
->>>>
->>>> common: 可复用组件
->>>>
->>>> management: 管理系统
->>>>
->>>> page-not-found: 路由不匹配时显示的组件
->>>>
+>>>
+>>> common: 可复用组件
 >>>
 >>> services: 存放各种服务文件
 >>>
 >>> shared: 共享文件，如自定义指令、枚举、类
->>>
->>> route-strategy: 路由复用策略
->>>
 >>
 >> assets：静态资源文件
 >>
 >> environments：环境变量文件
->>
 >>
 >> favicon.ico：网页图标
 >>

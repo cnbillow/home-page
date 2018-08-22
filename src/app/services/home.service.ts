@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { environment } from '@environments/environment';
 
+import { Response } from '@shared/models/response';
 import { HomeData } from '@shared/models/home-data';
 import { Experience } from '@shared/models/experience';
 
@@ -32,7 +33,7 @@ export class HomeService {
    * @return Observable<HomeData>
    */
   getHomeData (): Observable<HomeData> {
-    return this.http.get(this.apiUrl)
+    return this.http.get<Response>(this.apiUrl)
       .pipe(
         map(this.processHttpMsgService.handleMapResponse),
         map((data: Object) => { return <HomeData>data }),
