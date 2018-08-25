@@ -21,7 +21,7 @@ import { HeaderComponent } from '@common/header/header.component';
 import { FooterComponent } from '@common/footer/footer.component';
 import { BlogCardComponent } from '@common/blog-card/blog-card.component';
 
-import { LoginComponent } from './pages/login/login.component';
+import { LoginComponent } from '@pages/login/login.component';
 
 import { HomeComponent } from '@pages/home/home.component';
 import { AboutComponent } from '@pages/home/about/about.component';
@@ -37,6 +37,10 @@ import { BlogListComponent } from '@pages/blog-list/blog-list.component';
 import { BlogDetailComponent } from '@pages/blog-detail/blog-detail.component';
 import { BlogContentComponent } from '@pages/blog-detail/blog-content/blog-content.component';
 import { BlogCommentComponent } from '@pages/blog-detail/blog-comment/blog-comment.component';
+
+import { AdminComponent } from '@pages/admin/admin.component';
+import { BlogManagementComponent } from '@pages/admin/blog-management/blog-management.component';
+import { AddBlogComponent } from '@pages/admin/blog-management/add-blog/add-blog.component';
 
 import { PageNotFoundComponent } from '@pages/page-not-found/page-not-found.component';
 
@@ -71,6 +75,10 @@ registerLocaleData(zh);
     BlogDetailComponent,
     BlogContentComponent,
     BlogCommentComponent,
+
+    AdminComponent,
+    BlogManagementComponent,
+    AddBlogComponent,
 
     PageNotFoundComponent,
   ],

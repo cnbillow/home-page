@@ -48,4 +48,18 @@ export class BlogService {
         catchError(this.processHttpMsgService.handleError)
       );
   }
+
+  /**
+   * 简介：添加博客
+   * 
+   * @param blog: 博客数据
+   * @return Observable<any>
+   */
+  addBlog (blog: Blog): Observable<any> {
+    return this.http.post<Response>(this.apiUrl, blog)
+      .pipe(
+        map(this.processHttpMsgService.handleMapResponse),
+        catchError(this.processHttpMsgService.handleError)
+      );
+  }
 }

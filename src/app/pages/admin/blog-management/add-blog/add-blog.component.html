@@ -1,0 +1,53 @@
+<nz-tabset>
+  <!-- 博客数据表单 -->
+  <nz-tab nzTitle="编辑">
+    <form nz-form [formGroup]="addForm" (ngSubmit)="submitForm()">
+      <!-- 博客标题 -->
+      <nz-form-item>
+        <nz-form-label [nzSm]="7" [nzXs]="24" nzRequired nzFor="title">博客标题</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input nz-input formControlName="title">
+          <nz-form-explain *ngIf="formErrors.title">{{ formErrors.title }}</nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+      <!-- 博客标签 -->
+      <nz-form-item>
+        <nz-form-label [nzSm]="7" [nzXs]="24" nzRequired nzFor="tags">博客标签</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <nz-select formControlName="tags" nzMode="multiple">
+            <nz-option *ngFor="let option of tagOptions" [nzLabel]="option.label" [nzValue]="option.value"></nz-option>
+          </nz-select>
+          <nz-form-explain *ngIf="formErrors.tags">{{ formErrors.tags }}</nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+      <!-- 博客概述 -->
+      <nz-form-item>
+        <nz-form-label [nzSm]="7" [nzXs]="24" nzRequired nzFor="summary">博客概述</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input nz-input formControlName="summary">
+          <nz-form-explain *ngIf="formErrors.summary">{{ formErrors.summary }}</nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+      <!-- 博客内容 -->
+      <nz-form-item>
+        <nz-form-label [nzSm]="7" [nzXs]="24" nzRequired nzFor="content">博客内容</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <textarea nz-input formControlName="content" [nzAutosize]="autosize" placeholder="支持 markdown 格式" (keyup)="updatePreview($event.target.value)"></textarea>
+          <nz-form-explain *ngIf="formErrors.content">{{ formErrors.content }}</nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+      <!-- 提交按钮框模块 -->
+      <nz-form-item nz-row style="margin-bottom:8px;">
+        <nz-form-control [nzSpan]="14" [nzOffset]="7">
+          <button nz-button [disabled]="!addForm.valid" [nzLoading]="btnLoading" nzType="primary">添加</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </nz-tab>
+  <!-- 博客内容预览 -->
+  <nz-tab nzTitle="预览">
+    <!-- markdown 解析的内容 -->
+    <div [innerHtml]="convertedText" highlight="pre code" class="markdown-content">
+    </div>
+  </nz-tab>
+</nz-tabset>

@@ -22,11 +22,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.adminAuthService.loadCredential(); // 读取管理员认证信息
     this.subscription = this.adminAuthService.getAdminName().subscribe(
       (name: string) => {
-        console.log(`name = ${name}`);
         this.adminName = name;
       },
       (error: string) => {
-        console.log(`error = ${error}`);
         this.messageService.error(error);
       }
     );
@@ -40,7 +38,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
    * 简介：打开登录弹窗
    */
   openLoginModal (): void {
-    console.log('openLoginModal');
     this.adminAuthService.loginEvent.emit();
   }
 
