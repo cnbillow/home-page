@@ -1,14 +1,37 @@
 <header>
   <ul class="header" nz-menu nzMode="horizontal" nzTheme="dark">
+    <!-- 进入首页 -->
     <li nz-menu-item>
       <a routerLink="/">
         <i class="anticon anticon-home"></i> Home
       </a>
     </li>
+    <!-- 进入博客列表 -->
     <li nz-menu-item>
       <a routerLink="/blog">
         <i class="anticon anticon-book"></i> Blog
       </a>
     </li>
+    <!-- 普通游客身份 -->
+    <li nz-menu-item *ngIf="!adminName; else admin">
+      <a (click)="openLoginModal()">
+        <i class="anticon anticon-login"></i> Login
+      </a>
+    </li>
+    <!-- 管理员身份 -->
+    <ng-template #admin>
+      <li nz-menu-item>
+        <a routerLink="/admin">
+          <i class="anticon anticon-user"></i> Admin
+        </a>
+      </li>
+      <li nz-menu-item>
+        <a (click)="logout()">
+          <i class="anticon anticon-logout"></i> Logout
+        </a>
+      </li>
+    </ng-template>
   </ul>
+  <!-- 登录窗口 -->
+  <app-login></app-login>
 </header>

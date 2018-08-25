@@ -1,0 +1,34 @@
+<nz-modal [(nzVisible)]="showModal" [nzTitle]="modalTitle" [nzContent]="modalContent" [nzFooter]="modalFooter" (nzOnCancel)="closeModal()">
+  <ng-template #modalTitle>
+    管理员登录
+  </ng-template>
+  <ng-template #modalContent>
+    <form nz-form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+      <!-- 管理员名称 -->
+      <nz-form-item>
+        <nz-form-label [nzSm]="7" [nzXs]="24" nzRequired nzFor="adminName">名称</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input nz-input formControlName="adminName">
+          <nz-form-explain *ngIf="formErrors.adminName">{{ formErrors.adminName }}</nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+      <!-- 管理员密码 -->
+      <nz-form-item>
+        <nz-form-label [nzSm]="7" [nzXs]="24" nzRequired nzFor="password">密码</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input nz-input formControlName="password" type="password">
+          <nz-form-explain *ngIf="formErrors.password">{{ formErrors.password }}</nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+      <!-- 提交按钮框 -->
+      <nz-form-item nz-row style="margin-bottom:8px;">
+        <nz-form-control [nzSpan]="14" [nzOffset]="7">
+          <button nz-button [disabled]="!loginForm.valid" [nzLoading]="btnLoading" nzType="primary">登录</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </ng-template>
+  <ng-template #modalFooter>
+    <button nz-button nzType="default" (click)="closeModal()">取消</button>
+  </ng-template>
+</nz-modal>

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CanActivate, Router } from '@angular/router';
 
@@ -29,9 +29,14 @@ export class AdminAuthService implements CanActivate {
   adminName: Subject<string> = new Subject<string>(); // 管理员名字
   adminToken: string = undefined;                     // 管理员 token
 
+  loginEvent: EventEmitter<any> = new EventEmitter(); // 打开登录弹窗的事件
+
   constructor (private http: HttpClient,
     private processHttpMsgService: ProcessHttpMsgService,
-    private router: Router) { }
+    private router: Router) {
+
+    this.loginEvent = new EventEmitter();
+  }
   
   /**
    * 简介：实现路由守卫的函数
@@ -146,7 +151,7 @@ export class AdminAuthService implements CanActivate {
    * @param password: 管理员密码
    * @return Observable<string>, 管理员名称
    */
-  logIn (adminName: string, password: string): Observable<string> {
+  login (adminName: string, password: string): Observable<string> {
     return this.http.post<Response>(`${this.apiUrl}/login`, { adminName, password })
       .pipe(
         map(this.processHttpMsgService.handleMapResponse),
@@ -164,7 +169,7 @@ export class AdminAuthService implements CanActivate {
    * 
    * @return void
    */
-  logOut (): void {
+  logout (): void {
     this.destroyCredential();
   }
 
