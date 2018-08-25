@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
@@ -39,6 +39,8 @@ import { BlogContentComponent } from '@pages/blog-detail/blog-content/blog-conte
 import { BlogCommentComponent } from '@pages/blog-detail/blog-comment/blog-comment.component';
 
 import { PageNotFoundComponent } from '@pages/page-not-found/page-not-found.component';
+
+import { AdminAuthInterceptor, UnauthorizedInterceptor } from '@services/auth.interceptor';
 
 /** ====================== 配置 Angular i18n ====================== */
 import { registerLocaleData } from '@angular/common';
@@ -84,7 +86,12 @@ registerLocaleData(zh);
   ],
   providers: [
     { provide: NZ_I18N, useValue: zh_CN },
-    { provide: RouteReuseStrategy, useClass: ReuseStrategy }
+    { provide: RouteReuseStrategy, useClass: ReuseStrategy },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AdminAuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
