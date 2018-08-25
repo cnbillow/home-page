@@ -1,3 +1,44 @@
-<p>
-  blog-comment works!
-</p>
+<div>
+  <!-- 评论列表 -->
+  <div *ngIf="blog" style="margin-bottom: 20px;">
+    <nz-list [nzDataSource]="blog.comments" [nzRenderItem]="comment" nzItemLayout="horizontal">
+      <ng-template #comment let-comment>
+        <nz-list-item>
+          <nz-list-item-meta
+            style="text-align: left;"
+            [nzTitle]="nzTitle"
+            nzAvatar="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+            [nzDescription]="comment.content">
+            <ng-template #nzTitle>
+              {{ comment.author }}
+            </ng-template>
+          </nz-list-item-meta>
+        </nz-list-item>
+      </ng-template>
+    </nz-list>
+  </div>
+  <!-- 评论表单 -->
+  <h2 class="com-title">留下你的评论</h2>
+  <form nz-form [formGroup]="commentForm" (ngSubmit)="submitForm()">
+    <!-- 评论者名称 -->
+    <nz-form-item>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <input nz-input formControlName="author" placeholder="您的大名">
+        <nz-form-explain *ngIf="formErrors.author">{{ formErrors.author }}</nz-form-explain>
+      </nz-form-control>
+    </nz-form-item>
+    <!-- 评论内容 -->
+    <nz-form-item>
+      <nz-form-control [nzSm]="14" [nzXs]="24">
+        <textarea nz-input formControlName="content" [nzAutosize]="autosize" placeholder="您的留言"></textarea>
+        <nz-form-explain *ngIf="formErrors.content">{{ formErrors.content }}</nz-form-explain>
+      </nz-form-control>
+    </nz-form-item>
+    <!-- 提交按钮框 -->
+    <nz-form-item nz-row style="margin-bottom:8px;">
+      <nz-form-control [nzSpan]="14">
+        <button nz-button [disabled]="!commentForm.valid" [nzLoading]="btnLoading" nzType="primary">评论</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>

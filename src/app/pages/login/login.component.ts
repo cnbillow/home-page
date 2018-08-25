@@ -54,6 +54,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   /**
    * 简介：表单初始化的处理函数
+   * 
    * @return
    */
   initForm (): void {
@@ -68,6 +69,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   /**
    * 简介：登录表单提交的处理函数
+   * 
    * @return
    */
   submitForm (): void {
@@ -87,6 +89,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   /**
    * 简介：当表单输入改变时触发的处理函数
+   * 
    * @return
    */
   onFormChanged (data?: any): void {
@@ -111,6 +114,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   /**
    * 简介：点击关闭弹窗的处理函数
+   * 
    * @return
    */
   closeModal (): void {

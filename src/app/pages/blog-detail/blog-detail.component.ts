@@ -16,8 +16,9 @@ import { switchMap } from 'rxjs/operators';
 })
 export class BlogDetailComponent implements OnInit, OnDestroy {
 
-  blog: Blog;                     // 博客对象
-  blogSubscription: Subscription; // 博客订阅器
+  blog: Blog;                        // 博客对象
+  blogSubscription: Subscription;    // 博客订阅器
+  refreshSubscription: Subscription; // 刷新订阅器
 
   constructor (private route: ActivatedRoute,
     private blogService: BlogService,
@@ -39,9 +40,15 @@ export class BlogDetailComponent implements OnInit, OnDestroy {
           this.messageService.error(error);
         }
       );
+    
+    this.refreshSubscription = this.blogService.refreshEvent.subscribe(
+      (blog: Blog) => { this.blog = blog; },
+      (error: string) => { this.messageService.error(error); }
+    );
   }
 
   ngOnDestroy () {
-    if (this.blogSubscription) this.blogSubscription.unsubscribe(); // 取消订阅
+    if (this.blogSubscription) this.blogSubscription.unsubscribe();
+    if (this.refreshSubscription) this.refreshSubscription.unsubscribe();
   }
 }
