@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { Blog } from '@shared/models/blog';
 
@@ -55,7 +56,8 @@ export class AddBlogComponent implements OnInit, OnDestroy {
 
   addSubscription: Subscription;
 
-  constructor (private blogService: BlogService,
+  constructor (private router: Router,
+    private blogService: BlogService,
     private markdownService: MarkdownParserService,
     private messageService: NzMessageService) { }
 
@@ -95,10 +97,26 @@ export class AddBlogComponent implements OnInit, OnDestroy {
     this.addSubscription = this.blogService.addBlog(data)
       .subscribe(() => {
         this.btnLoading = false;
+        this.resetForm();
+        this.router.navigate(['/']);
       }, (error: string) => {
         this.btnLoading = false;
         this.messageService.error(error);
       });
+  }
+
+  /**
+   * 简介：重置评论表单
+   * 
+   * @return void
+   */
+  resetForm (): void {
+    this.addForm.reset({
+      title: '',
+      tags: '',
+      summary: '',
+      content: '',
+    });
   }
 
   /**

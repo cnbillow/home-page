@@ -1,5 +1,6 @@
 <div>
   <!-- 评论列表 -->
+  <h2 class="com-title">游客留言</h2>
   <div *ngIf="blog" style="margin-bottom: 20px;">
     <nz-list [nzDataSource]="blog.comments" [nzRenderItem]="comment" nzItemLayout="horizontal">
       <ng-template #comment let-comment>
