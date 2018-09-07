@@ -36,6 +36,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   /**
    * 简介：打开登录弹窗
+   * 
+   * @return {void}
    */
   openLoginModal (): void {
     this.adminAuthService.loginEvent.emit();
@@ -44,7 +46,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   /**
    * 简介：管理员登出
    * 
-   * @return void
+   * @return {void}
    */
   logout (): void {
     this.adminName = undefined;

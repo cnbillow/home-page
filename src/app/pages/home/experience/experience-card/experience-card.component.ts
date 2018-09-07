@@ -20,6 +20,8 @@ export class ExperienceCardComponent implements OnInit {
 
   /**
    * 简介：展示工作经历详情，这里只是触发打开弹窗
+   * 
+   * @return {void}
    */
   showExperienceDetail (): void {
     this.homeService.showExpDetailEvent.emit(this.experience);

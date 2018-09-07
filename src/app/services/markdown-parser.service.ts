@@ -20,9 +20,10 @@ export class MarkdownParserService {
   /**
    * 简介：解析 markdown 内容为 html
    * 
-   * @param markdown: markdown 格式的内容
+   * @param  {string} markdown markdown 格式的内容
+   * @return {string} markdown 解析后的内容
    */
-  convert (markdown: string) {
+  convert (markdown: string): string {
     return this.md.parse(markdown);
   }
 }

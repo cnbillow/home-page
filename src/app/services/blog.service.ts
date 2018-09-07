@@ -30,7 +30,7 @@ export class BlogService {
   /**
    * 简介：获取博客列表信息
    * 
-   * @return Observable<Blog[]>
+   * @return {Observable<Blog[]>}
    */
   getBlogs (): Observable<Blog[]> {
     return this.http.get<Response>(this.apiUrl)
@@ -44,8 +44,8 @@ export class BlogService {
   /**
    * 简介：根据博客 ID 获取博客详情
    * 
-   * @param blogId: 博客 ID
-   * @return Observable<Blog>
+   * @param  {string} blogId 博客 ID
+   * @return {Observable<Blog>}
    */
   getBlogById (blogId: string): Observable<Blog> {
     return this.http.get<Response>(`${this.apiUrl}/${blogId}`)
@@ -59,8 +59,8 @@ export class BlogService {
   /**
    * 简介：添加博客
    * 
-   * @param blog: 博客数据
-   * @return Observable<any>
+   * @param  {Blog} blog 博客数据
+   * @return {Observable<any>}
    */
   addBlog (blog: Blog): Observable<any> {
     return this.http.post<Response>(this.apiUrl, blog)
@@ -73,9 +73,9 @@ export class BlogService {
   /**
    * 简介：给博客添加评论
    * 
-   * @param comment: 评论数据
-   * @param blogId: 博客 ID
-   * @return Observable<any>
+   * @param  {Comment} comment 评论数据
+   * @param  {string} blogId 博客 ID
+   * @return {Observable<any>}
    */
   addComment (comment: Comment, blogId: string): Observable<Blog> {
     return this.http.post<Response>(`${this.apiUrl}/${blogId}/comments`, comment)

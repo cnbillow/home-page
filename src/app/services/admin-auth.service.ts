@@ -41,7 +41,7 @@ export class AdminAuthService implements CanActivate {
   /**
    * 简介：实现路由守卫的函数
    * 
-   * @return boolean, 如果管理员通过认证则返回 true，否则 false
+   * @return {boolean} 如果管理员通过认证则返回 true，否则 false
    */
   canActivate (): boolean {
     if (this.isAuthenticated) {
@@ -54,7 +54,7 @@ export class AdminAuthService implements CanActivate {
   /**
    * 简介：检查管理员的 token 是否合法
    * 
-   * @return void
+   * @return {void}
    */
   checkJwtToken (): void {
     this.http.get<Response>(`${this.apiUrl}/check-jwt`)
@@ -71,7 +71,7 @@ export class AdminAuthService implements CanActivate {
   /**
    * 简介：发布管理员名称的订阅事件
    * 
-   * @return Observable<string>
+   * @return {Observable<string>}
    */
   getAdminName (): Observable<string> {
     return this.adminName.asObservable();
@@ -80,8 +80,8 @@ export class AdminAuthService implements CanActivate {
   /**
    * 简介：发布订阅事件，更新管理员名称
    * 
-   * @param name: 管理员名称
-   * @return void
+   * @param {string} name 管理员名称
+   * @return {void}
    */
   sendAdminName (name: string): void {
     this.adminName.next(name);
@@ -90,7 +90,7 @@ export class AdminAuthService implements CanActivate {
   /**
    * 简介：发布订阅事件，清空管理员名称
    * 
-   * @return void
+   * @return {void}
    */
   clearAdminName (): void {
     this.adminName.next(undefined);
@@ -99,7 +99,7 @@ export class AdminAuthService implements CanActivate {
   /**
    * 简介：读取管理员的认证信息
    * 
-   * @return void
+   * @return {void}
    */
   loadCredential (): void {
     const credentials = <AdminCredential>JSON.parse(localStorage.getItem(this.tokenKey));
@@ -114,7 +114,7 @@ export class AdminAuthService implements CanActivate {
   /**
    * 简介：存储管理员的认证信息
    * 
-   * @return void
+   * @return {void}
    */
   storeCredential (credentials: AdminCredential): void { 
     localStorage.setItem(this.tokenKey, JSON.stringify(credentials));
@@ -124,7 +124,7 @@ export class AdminAuthService implements CanActivate {
   /**
    * 简介：使用管理员的认证信息
    * 
-   * @return void
+   * @return {void}
    */
   useCredential (credentials: AdminCredential): void {
     this.isAuthenticated = true;
@@ -135,7 +135,7 @@ export class AdminAuthService implements CanActivate {
   /**
    * 简介：清空管理员的认证信息
    * 
-   * @return void
+   * @return {void}
    */
   destroyCredential (): void {
     this.adminToken = undefined;
@@ -147,9 +147,9 @@ export class AdminAuthService implements CanActivate {
   /**
    * 简介：管理员登录
    * 
-   * @param adminName: 管理员名称
-   * @param password: 管理员密码
-   * @return Observable<string>, 管理员名称
+   * @param  {string} adminName 管理员名称
+   * @param  {string} password 管理员密码
+   * @return {Observable<string>} 管理员名称
    */
   login (adminName: string, password: string): Observable<string> {
     return this.http.post<Response>(`${this.apiUrl}/login`, { adminName, password })
@@ -167,7 +167,7 @@ export class AdminAuthService implements CanActivate {
   /**
    * 简介：管理员登出
    * 
-   * @return void
+   * @return {void}
    */
   logout (): void {
     this.destroyCredential();
@@ -176,7 +176,7 @@ export class AdminAuthService implements CanActivate {
   /**
    * 简介：获取管理员 token
    * 
-   * @return string
+   * @return {string}
    */
   getToken (): string {
     return this.adminToken;

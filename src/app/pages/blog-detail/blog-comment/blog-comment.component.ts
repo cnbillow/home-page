@@ -59,7 +59,7 @@ export class BlogCommentComponent implements OnInit, OnDestroy {
   /**
    * 简介：表单初始化的处理函数
    * 
-   * @return void
+   * @return {void}
    */
   initForm (): void {
     this.commentForm = new FormGroup({
@@ -74,7 +74,7 @@ export class BlogCommentComponent implements OnInit, OnDestroy {
   /**
    * 简介：登录表单提交的处理函数
    * 
-   * @return void
+   * @return {void}
    */
   submitForm (): void {
     this.btnLoading = true;
@@ -93,7 +93,7 @@ export class BlogCommentComponent implements OnInit, OnDestroy {
   /**
    * 简介：重置评论表单
    * 
-   * @return void
+   * @return {void}
    */
   resetForm (): void {
     this.commentForm.reset({
@@ -105,7 +105,8 @@ export class BlogCommentComponent implements OnInit, OnDestroy {
   /**
    * 简介：当表单输入改变时触发的处理函数
    * 
-   * @return void
+   * @param  {any} data 表单数据
+   * @return {void}
    */
   onFormChanged (data?: any): void {
 

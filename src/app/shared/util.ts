@@ -10,8 +10,8 @@ export class Util {
    * 传入的搜索条件对象是 { aid: 123, marketerNames: [赵完松, 刘定坚] }
    * 返回结果是 ?aid=123&marketerNames[]=赵完松&marketerNames[]=刘定坚
    * 
-   * @param query: 搜索条件对象
-   * @return URL 参数字符串
+   * @param  {string} query 搜索条件对象
+   * @return {string} URL 参数字符串
    */
   public static parseParams (query: Object): string {
 
@@ -38,8 +38,8 @@ export class Util {
   /**
    * 简介：把日期转换成字符串，格式为：yyyy-MM-dd
    * 
-   * @param date: 日期对象
-   * @return 日期字符串
+   * @param  {Date} date: 日期对象
+   * @return {string} 日期字符串
    */
   public static parseDate (date: Date): string {
 
@@ -55,9 +55,9 @@ export class Util {
    * 简介：深拷贝
    * 当然了这是 TypeScript，还可以有其他类，要是精确的拷贝，你必须通过反射获取它的类型
    * 
-   * @param src: 被拷贝的变量
-   * @param ignoreFields: 不需要拷贝的字段名称，这只是针对对象的
-   * @return src 的拷贝
+   * @param  {any} src: 被拷贝的变量
+   * @param  {string[]} ignoreFields: 不需要拷贝的字段名称，这只是针对对象的
+   * @return {any} src 的拷贝
    */
   public static deepCopy (src: any, ...ignoreFields: string[]): any {
     if (src == undefined) {

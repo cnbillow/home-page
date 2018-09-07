@@ -6,6 +6,8 @@ import { NzMessageService } from 'ng-zorro-antd';
 
 import { Subscription } from 'rxjs';
 
+import * as CryptoJS from 'crypto-js';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -55,7 +57,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   /**
    * 简介：表单初始化的处理函数
    * 
-   * @return
+   * @return {void}
    */
   initForm (): void {
     this.loginForm = new FormGroup({
@@ -70,13 +72,14 @@ export class LoginComponent implements OnInit, OnDestroy {
   /**
    * 简介：登录表单提交的处理函数
    * 
-   * @return
+   * @return {void}
    */
   submitForm (): void {
     this.btnLoading = true;
     const adminName = this.loginForm.value['adminName'];
     const password = this.loginForm.value['password'];
-    this.loginSubscription = this.adminAuthService.login(adminName, password).subscribe(
+    const hashPwd = CryptoJS.SHA256(password).toString(); // 密码需要经过 SHA256 加密
+    this.loginSubscription = this.adminAuthService.login(adminName, hashPwd).subscribe(
       (adminName: string) => {
         this.btnLoading = false;
         this.closeModal();
@@ -90,7 +93,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   /**
    * 简介：当表单输入改变时触发的处理函数
    * 
-   * @return
+   * @param  {any} data 表单数据
+   * @return {void}
    */
   onFormChanged (data?: any): void {
 
@@ -115,7 +119,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   /**
    * 简介：点击关闭弹窗的处理函数
    * 
-   * @return
+   * @return {void}
    */
   closeModal (): void {
     this.showModal = false;

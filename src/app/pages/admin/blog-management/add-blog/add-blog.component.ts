@@ -72,7 +72,7 @@ export class AddBlogComponent implements OnInit, OnDestroy {
   /**
    * 简介：表单初始化的处理函数
    * 
-   * @return
+   * @return {void}
    */
   initForm (): void {
     this.addForm = new FormGroup({
@@ -89,7 +89,7 @@ export class AddBlogComponent implements OnInit, OnDestroy {
   /**
    * 简介：添加博客表单提交的处理函数
    * 
-   * @return void
+   * @return {void}
    */
   submitForm (): void {
     this.btnLoading = true;
@@ -108,7 +108,7 @@ export class AddBlogComponent implements OnInit, OnDestroy {
   /**
    * 简介：重置评论表单
    * 
-   * @return void
+   * @return {void}
    */
   resetForm (): void {
     this.addForm.reset({
@@ -122,7 +122,7 @@ export class AddBlogComponent implements OnInit, OnDestroy {
   /**
    * 简介：主要把 location 数组转化成省份、城市两个字段，如果遇到直辖市或特别行政区，则省份与城市一致
    * 
-   * @return Object
+   * @return {Blog}
    */
   parseData (): Blog {
     const data = new Blog();
@@ -136,7 +136,8 @@ export class AddBlogComponent implements OnInit, OnDestroy {
   /**
    * 简介：根据输入的 markdown 解析内容，更新预览
    * 
-   * @param mdText: markdown 内容
+   * @param  {string} mdText markdown 内容
+   * @return {void}
    */
   updatePreview (mdText: string): void {
     this.convertedText = this.markdownService.convert(mdText);
@@ -145,7 +146,8 @@ export class AddBlogComponent implements OnInit, OnDestroy {
   /**
    * 简介：当表单输入改变时触发的处理函数
    * 
-   * @return void
+   * @param  {any} data 表单数据
+   * @return {void}
    */
   onFormChanged (data?: any): void {
 

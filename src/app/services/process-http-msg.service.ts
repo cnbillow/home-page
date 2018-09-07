@@ -15,8 +15,8 @@ export class ProcessHttpMsgService {
   /**
    * 简介：处理错误的处理函数
    * 
-   * @param error
-   * @return Observable<never>
+   * @param  {HttpErrorResponse | any} error 异常错误
+   * @return {Observable<never>}
    */
   public handleError (error: HttpErrorResponse | any): Observable<never> {
 
@@ -37,9 +37,10 @@ export class ProcessHttpMsgService {
    * 简介：获取响应后的处理函数
    * 与后端约定：如果 code 字段不为 '0'，皆为异常
    * 
-   * @param response 
+   * @param  {Response} response 服务端响应
+   * @return {Object} 响应数据
    */
-  public handleMapResponse (response: Response) {
+  public handleMapResponse (response: Response): Object {
     if (response.code === '0') return response.data;
     else throw new Error(response.message);
   }

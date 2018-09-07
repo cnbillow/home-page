@@ -40,8 +40,9 @@ export class UnauthorizedInterceptor implements HttpInterceptor {
   /**
    * 简介：拦截器实现的拦截函数
    * 
-   * @param req: 当前准备发送的请求
-   * @param next: 下一个处理器
+   * @param  {HttpRequest<any>} req 当前准备发送的请求
+   * @param  {HttpHandler} next 下一个处理器
+   * @return {Observable<HttpEvent<any>>}
    */
   intercept (req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 

@@ -32,7 +32,8 @@ export class ExperienceDetailComponent implements OnInit, OnDestroy {
 
   /**
    * 简介：点击关闭弹窗的处理函数
-   * @return void
+   * 
+   * @return {void}
    */
   closeModal (): void {
     this.isVisible = false;

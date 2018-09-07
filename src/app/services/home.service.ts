@@ -30,7 +30,7 @@ export class HomeService {
   /**
    * 简介：获取首页的数据，如：工作经历、教育背景等
    * 
-   * @return Observable<HomeData>
+   * @return {Observable<HomeData>}
    */
   getHomeData (): Observable<HomeData> {
     return this.http.get<Response>(this.apiUrl)
